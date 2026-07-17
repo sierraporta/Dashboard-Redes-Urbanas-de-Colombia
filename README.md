@@ -109,6 +109,6 @@ Esta idea surge de un proyecto en el marco de las **estancias Delfín 2026** en 
 
 ## Licencia
 
-- **Código y dashboard**: se sugiere licencia **MIT** (añade un archivo `LICENSE` si lo deseas).
+- **Código y dashboard**: licencia **MIT**
 - **Datos de OpenStreetMap**: **ODbL**.
 - **Fotografías**: **Unsplash License**.
