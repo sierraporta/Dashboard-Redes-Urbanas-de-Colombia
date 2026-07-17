@@ -1,0 +1,42 @@
+# ─────────────────────────────────────────────────────────────
+# Redes Urbanas de Colombia — .gitignore
+# La página vive en docs/ (que NO se ignora). Aquí se excluye
+# todo lo pesado o regenerable que no necesita el repositorio.
+# ─────────────────────────────────────────────────────────────
+
+# Extractos de OpenStreetMap (cientos de MB, y GitHub bloquea >100 MB)
+*.osm.pbf
+
+# Figuras completas por ciudad (~700 MB). El sitio solo usa el
+# subconjunto optimizado que ya está en docs/figuras/  (¡no ignorar ese!)
+/figuras/
+
+# Fotos originales full-res (~76 MB). El sitio usa las optimizadas de
+# docs/ColombiaImagenes/  (quita esta línea si quieres archivar las originales)
+/ColombiaImagenes/
+
+# Salidas crudas por ciudad (regenerables desde el pipeline).
+# El dataset ensamblado en dataset/ sí se conserva.
+/resultados/*_nodos.csv
+/resultados/*_mapa.html
+/resultados/_log_batch.csv
+
+# Caché de OSMnx / pyrosm
+/cache/
+.urban_batch.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Temporales de editores / oficina / sistema
+*~
+*.tmp
+.~lock.*#
+.DS_Store
+Thumbs.db
+desktop.ini
