@@ -1,0 +1,144 @@
+columna,descripcion
+id,Identificador de la ciudad (correlativo del Excel maestro)
+pais,País (México / Colombia)
+ciudad,Nombre de la ciudad
+estado_departamento,Estado (MX) o departamento (CO)
+region_geografica,Zona geográfica dentro del país
+poblacion,Población municipal (INEGI 2020 / DANE 2024)
+poblacion_metro,Población del área metropolitana (si aplica)
+altitud_m,Altitud media (m)
+costero,La ciudad está sobre la costa (Sí/No)
+lat,Latitud del centro (WGS84)
+lon,Longitud del centro (WGS84)
+network_type,Tipo de red descargada (walk/drive/bike)
+metodo_red,Método de descarga (point_<r>m = disco lat/lon; place = límite admin.)
+n_nodos,Nº de nodos (intersecciones) de la red no dirigida
+n_aristas,Nº de aristas (tramos de calle)
+grado_promedio,Grado medio de los nodos
+densidad_red,Densidad del grafo (aristas / posibles)
+long_prom_arista_m,Longitud media de tramo de calle (m)
+long_total_calles_m,Longitud total de la red vial (m)
+n_intersecciones,Nº de intersecciones (OSMnx basic_stats)
+circuity_avg,Circuidad media (long. real / long. en línea recta)
+clustering_prom,Coeficiente de clustering medio
+n_pois_total,Nº total de POIs encontrados en OSM dentro del área
+servicios_con_datos,Nº de tipos de servicio con al menos un POI
+n_pois_hospital,Nº de POIs de tipo 'hospital'
+n_pois_clinica,Nº de POIs de tipo 'clinica'
+n_pois_farmacia,Nº de POIs de tipo 'farmacia'
+n_pois_escuela,Nº de POIs de tipo 'escuela'
+n_pois_mercado,Nº de POIs de tipo 'mercado'
+n_pois_parque,Nº de POIs de tipo 'parque'
+n_pois_policia,Nº de POIs de tipo 'policia'
+n_pois_bomberos,Nº de POIs de tipo 'bomberos'
+degree_c_mean,Centralidad degree_c — mean sobre los nodos
+degree_c_median,Centralidad degree_c — median sobre los nodos
+degree_c_std,Centralidad degree_c — std sobre los nodos
+degree_c_p90,Centralidad degree_c — p90 sobre los nodos
+degree_c_cv,Centralidad degree_c — cv sobre los nodos
+closeness_c_mean,Centralidad closeness_c — mean sobre los nodos
+closeness_c_median,Centralidad closeness_c — median sobre los nodos
+closeness_c_std,Centralidad closeness_c — std sobre los nodos
+closeness_c_p90,Centralidad closeness_c — p90 sobre los nodos
+closeness_c_cv,Centralidad closeness_c — cv sobre los nodos
+betweenness_c_mean,Centralidad betweenness_c — mean sobre los nodos
+betweenness_c_median,Centralidad betweenness_c — median sobre los nodos
+betweenness_c_std,Centralidad betweenness_c — std sobre los nodos
+betweenness_c_p90,Centralidad betweenness_c — p90 sobre los nodos
+betweenness_c_cv,Centralidad betweenness_c — cv sobre los nodos
+dist_hospital_mean,Distancia en red al 'hospital' más cercano — mean
+dist_hospital_median,Distancia en red al 'hospital' más cercano — median
+dist_hospital_std,Distancia en red al 'hospital' más cercano — std
+dist_hospital_p90,Distancia en red al 'hospital' más cercano — p90
+dist_hospital_cv,Distancia en red al 'hospital' más cercano — cv
+pct_acceso_hospital,% de nodos con un 'hospital' a menos del umbral de acceso
+dist_clinica_mean,Distancia en red al 'clinica' más cercano — mean
+dist_clinica_median,Distancia en red al 'clinica' más cercano — median
+dist_clinica_std,Distancia en red al 'clinica' más cercano — std
+dist_clinica_p90,Distancia en red al 'clinica' más cercano — p90
+dist_clinica_cv,Distancia en red al 'clinica' más cercano — cv
+pct_acceso_clinica,% de nodos con un 'clinica' a menos del umbral de acceso
+dist_farmacia_mean,Distancia en red al 'farmacia' más cercano — mean
+dist_farmacia_median,Distancia en red al 'farmacia' más cercano — median
+dist_farmacia_std,Distancia en red al 'farmacia' más cercano — std
+dist_farmacia_p90,Distancia en red al 'farmacia' más cercano — p90
+dist_farmacia_cv,Distancia en red al 'farmacia' más cercano — cv
+pct_acceso_farmacia,% de nodos con un 'farmacia' a menos del umbral de acceso
+dist_escuela_mean,Distancia en red al 'escuela' más cercano — mean
+dist_escuela_median,Distancia en red al 'escuela' más cercano — median
+dist_escuela_std,Distancia en red al 'escuela' más cercano — std
+dist_escuela_p90,Distancia en red al 'escuela' más cercano — p90
+dist_escuela_cv,Distancia en red al 'escuela' más cercano — cv
+pct_acceso_escuela,% de nodos con un 'escuela' a menos del umbral de acceso
+dist_mercado_mean,Distancia en red al 'mercado' más cercano — mean
+dist_mercado_median,Distancia en red al 'mercado' más cercano — median
+dist_mercado_std,Distancia en red al 'mercado' más cercano — std
+dist_mercado_p90,Distancia en red al 'mercado' más cercano — p90
+dist_mercado_cv,Distancia en red al 'mercado' más cercano — cv
+pct_acceso_mercado,% de nodos con un 'mercado' a menos del umbral de acceso
+dist_parque_mean,Distancia en red al 'parque' más cercano — mean
+dist_parque_median,Distancia en red al 'parque' más cercano — median
+dist_parque_std,Distancia en red al 'parque' más cercano — std
+dist_parque_p90,Distancia en red al 'parque' más cercano — p90
+dist_parque_cv,Distancia en red al 'parque' más cercano — cv
+pct_acceso_parque,% de nodos con un 'parque' a menos del umbral de acceso
+dist_policia_mean,Distancia en red al 'policia' más cercano — mean
+dist_policia_median,Distancia en red al 'policia' más cercano — median
+dist_policia_std,Distancia en red al 'policia' más cercano — std
+dist_policia_p90,Distancia en red al 'policia' más cercano — p90
+dist_policia_cv,Distancia en red al 'policia' más cercano — cv
+pct_acceso_policia,% de nodos con un 'policia' a menos del umbral de acceso
+dist_bomberos_mean,Distancia en red al 'bomberos' más cercano — mean
+dist_bomberos_median,Distancia en red al 'bomberos' más cercano — median
+dist_bomberos_std,Distancia en red al 'bomberos' más cercano — std
+dist_bomberos_p90,Distancia en red al 'bomberos' más cercano — p90
+dist_bomberos_cv,Distancia en red al 'bomberos' más cercano — cv
+pct_acceso_bomberos,% de nodos con un 'bomberos' a menos del umbral de acceso
+corr_bomberos_betweenness_c_p,p-valor de la correlación betweenness_c vs distancia a 'bomberos'
+corr_bomberos_betweenness_c_rho,Spearman rho entre betweenness_c y distancia a 'bomberos'
+corr_bomberos_closeness_c_p,p-valor de la correlación closeness_c vs distancia a 'bomberos'
+corr_bomberos_closeness_c_rho,Spearman rho entre closeness_c y distancia a 'bomberos'
+corr_bomberos_degree_c_p,p-valor de la correlación degree_c vs distancia a 'bomberos'
+corr_bomberos_degree_c_rho,Spearman rho entre degree_c y distancia a 'bomberos'
+corr_clinica_betweenness_c_p,p-valor de la correlación betweenness_c vs distancia a 'clinica'
+corr_clinica_betweenness_c_rho,Spearman rho entre betweenness_c y distancia a 'clinica'
+corr_clinica_closeness_c_p,p-valor de la correlación closeness_c vs distancia a 'clinica'
+corr_clinica_closeness_c_rho,Spearman rho entre closeness_c y distancia a 'clinica'
+corr_clinica_degree_c_p,p-valor de la correlación degree_c vs distancia a 'clinica'
+corr_clinica_degree_c_rho,Spearman rho entre degree_c y distancia a 'clinica'
+corr_escuela_betweenness_c_p,p-valor de la correlación betweenness_c vs distancia a 'escuela'
+corr_escuela_betweenness_c_rho,Spearman rho entre betweenness_c y distancia a 'escuela'
+corr_escuela_closeness_c_p,p-valor de la correlación closeness_c vs distancia a 'escuela'
+corr_escuela_closeness_c_rho,Spearman rho entre closeness_c y distancia a 'escuela'
+corr_escuela_degree_c_p,p-valor de la correlación degree_c vs distancia a 'escuela'
+corr_escuela_degree_c_rho,Spearman rho entre degree_c y distancia a 'escuela'
+corr_farmacia_betweenness_c_p,p-valor de la correlación betweenness_c vs distancia a 'farmacia'
+corr_farmacia_betweenness_c_rho,Spearman rho entre betweenness_c y distancia a 'farmacia'
+corr_farmacia_closeness_c_p,p-valor de la correlación closeness_c vs distancia a 'farmacia'
+corr_farmacia_closeness_c_rho,Spearman rho entre closeness_c y distancia a 'farmacia'
+corr_farmacia_degree_c_p,p-valor de la correlación degree_c vs distancia a 'farmacia'
+corr_farmacia_degree_c_rho,Spearman rho entre degree_c y distancia a 'farmacia'
+corr_hospital_betweenness_c_p,p-valor de la correlación betweenness_c vs distancia a 'hospital'
+corr_hospital_betweenness_c_rho,Spearman rho entre betweenness_c y distancia a 'hospital'
+corr_hospital_closeness_c_p,p-valor de la correlación closeness_c vs distancia a 'hospital'
+corr_hospital_closeness_c_rho,Spearman rho entre closeness_c y distancia a 'hospital'
+corr_hospital_degree_c_p,p-valor de la correlación degree_c vs distancia a 'hospital'
+corr_hospital_degree_c_rho,Spearman rho entre degree_c y distancia a 'hospital'
+corr_mercado_betweenness_c_p,p-valor de la correlación betweenness_c vs distancia a 'mercado'
+corr_mercado_betweenness_c_rho,Spearman rho entre betweenness_c y distancia a 'mercado'
+corr_mercado_closeness_c_p,p-valor de la correlación closeness_c vs distancia a 'mercado'
+corr_mercado_closeness_c_rho,Spearman rho entre closeness_c y distancia a 'mercado'
+corr_mercado_degree_c_p,p-valor de la correlación degree_c vs distancia a 'mercado'
+corr_mercado_degree_c_rho,Spearman rho entre degree_c y distancia a 'mercado'
+corr_parque_betweenness_c_p,p-valor de la correlación betweenness_c vs distancia a 'parque'
+corr_parque_betweenness_c_rho,Spearman rho entre betweenness_c y distancia a 'parque'
+corr_parque_closeness_c_p,p-valor de la correlación closeness_c vs distancia a 'parque'
+corr_parque_closeness_c_rho,Spearman rho entre closeness_c y distancia a 'parque'
+corr_parque_degree_c_p,p-valor de la correlación degree_c vs distancia a 'parque'
+corr_parque_degree_c_rho,Spearman rho entre degree_c y distancia a 'parque'
+corr_policia_betweenness_c_p,p-valor de la correlación betweenness_c vs distancia a 'policia'
+corr_policia_betweenness_c_rho,Spearman rho entre betweenness_c y distancia a 'policia'
+corr_policia_closeness_c_p,p-valor de la correlación closeness_c vs distancia a 'policia'
+corr_policia_closeness_c_rho,Spearman rho entre closeness_c y distancia a 'policia'
+corr_policia_degree_c_p,p-valor de la correlación degree_c vs distancia a 'policia'
+corr_policia_degree_c_rho,Spearman rho entre degree_c y distancia a 'policia'
