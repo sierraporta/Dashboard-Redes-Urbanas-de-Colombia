@@ -13,8 +13,7 @@ Redes Urbanas de Colombia. Caracterización de 140 ciudades desde su red vial pe
 
 ## 🌐 Página en vivo / Live site
 
-> **https://TU_USUARIO.github.io/redes-urbanas-colombia/**
-> *(reemplaza `TU_USUARIO` y el nombre del repositorio por los tuyos)*
+> **https://sierraporta.github.io/Dashboard-Redes-Urbanas-de-Colombia/**
 
 Un **dashboard interactivo y bilingüe (ES/EN)** con cinco vistas: Inicio, Ranking, Perfil de ciudad, Comparar, Mapa y Metodología.
 
