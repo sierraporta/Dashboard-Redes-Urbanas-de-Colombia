@@ -104,6 +104,15 @@ color:#fff;border-radius:18px;padding:44px 34px;position:relative;overflow:hidde
 background:linear-gradient(transparent,rgba(0,0,0,.55))}
 .band{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;height:150px;margin:2px 0 4px}
 .band>div{background-size:cover;background-position:center;border-radius:12px;box-shadow:0 3px 12px rgba(15,30,46,.1)}
+.ins{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px}
+.ins .c{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(15,30,46,.06);display:flex;flex-direction:column;transition:transform .15s}
+.ins .c:hover{transform:translateY(-4px)}
+.ins .c .ph{height:96px;position:relative;background-size:cover;background-position:center}
+.ins .c .ph .lab{position:absolute;left:0;right:0;bottom:0;padding:16px 11px 7px;color:#fff;font-size:12px;font-weight:700;letter-spacing:.2px;background:linear-gradient(transparent,rgba(4,20,30,.7))}
+.ins .c .bd{padding:13px 15px 16px;display:flex;flex-direction:column;flex:1}
+.ins .c .val{font-family:'Sora';font-size:34px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-.5px}
+.ins .c .city{font-size:15px;font-weight:700;color:var(--ink);margin-top:6px;display:flex;align-items:center;gap:4px}
+.ins .c .why{margin:9px 0 0;font-size:12.5px;color:#51616e;line-height:1.5}
 @media(max-width:620px){.band{grid-template-columns:repeat(2,1fr);height:auto}.band>div{height:110px}}
 .lead .badge{margin-left:6px}
 /* profile ring */
@@ -473,8 +482,7 @@ const OVERVIEW={es:function(){return `
 </div>
 <div class="card"><h3 class="k">¿Qué preguntas ayuda a responder?</h3>
 <p style="line-height:1.7">• ¿Qué ciudades son más <b>compactas y transitables</b> a pie? &nbsp; • ¿Dónde el acceso a hospitales, farmacias o escuelas es más <b>desigual</b> entre barrios? &nbsp; • ¿Cómo moldea la <b>topografía</b> (montaña vs. llano) el trazado urbano? &nbsp; • ¿Qué ciudades son <b>morfológicamente parecidas</b> y podrían compartir soluciones? &nbsp; • ¿Cómo se compara mi ciudad con otras de su <b>región o tamaño</b>?</p></div>
-<div class="card"><h3 class="k">Ciudades líderes por índice</h3><div class="big" id="ov_lead"></div>
-<p class="muted">Percentil 0-100 entre las 140 ciudades (excluye cobertura limitada). Explora el resto en las pestañas <b>Ranking</b>, <b>Perfil</b>, <b>Comparar</b> y <b>Mapa</b>.</p></div>`},
+`},
  en:function(){return `
 <div class="q3" style="margin-bottom:16px">
   <div class="b"><h4>🎯 What is it?</h4><p>An open dashboard that measures the <b>form</b> of Colombian cities (how their streets connect) and their <b>pedestrian accessibility</b> (how close services are), using open OpenStreetMap data and network analysis.</p></div>
@@ -483,8 +491,37 @@ const OVERVIEW={es:function(){return `
 </div>
 <div class="card"><h3 class="k">What questions does it help answer?</h3>
 <p style="line-height:1.7">• Which cities are more <b>compact and walkable</b>? &nbsp; • Where is access to hospitals, pharmacies or schools most <b>unequal</b> across neighborhoods? &nbsp; • How does <b>topography</b> (mountain vs. plain) shape the urban grid? &nbsp; • Which cities are <b>morphologically similar</b> and could share solutions? &nbsp; • How does my city compare to others of its <b>region or size</b>?</p></div>
-<div class="card"><h3 class="k">Leading cities by index</h3><div class="big" id="ov_lead"></div>
-<p class="muted">0-100 percentile among the 140 cities (limited coverage excluded). Explore the rest in the <b>Ranking</b>, <b>Profile</b>, <b>Compare</b> and <b>Map</b> tabs.</p></div>`}};
+`}};
+function insightsBlock(){
+  const es=LANG==='es';
+  const AB=DATA.filter(d=>d.calidad==='A');
+  const maxBy=(a,k)=>a.reduce((x,y)=>y[k]>x[k]?y:x);
+  const minBy=(a,k)=>a.filter(d=>d[k]!=null).reduce((x,y)=>y[k]<x[k]?y:x);
+  const cards=[
+   {img:2,lab:es?'Mejor índice general':'Best overall index',d:maxBy(AB,'g'),v:d=>fmt(d.g,0),
+    why:es?'Combina en un solo puntaje la conectividad, la accesibilidad y la equidad. Encabeza el índice general entre las 140 ciudades del estudio.':'Combines connectivity, accessibility and equity in a single score. It leads the overall index among the 140 cities in the study.'},
+   {img:4,lab:es?'Mejor conectividad':'Best connectivity',d:maxBy(AB,'ic'),v:d=>fmt(d.ic,0),
+    why:es?'Su malla de calles es densa, directa y muy conectada: muchas intersecciones y alta centralidad hacen que moverse a pie sea fluido.':'Its street grid is dense, direct and highly connected: many intersections and high centrality make getting around on foot seamless.'},
+   {img:12,lab:es?'Mayor equidad':'Best equity',d:maxBy(AB,'ie'),v:d=>fmt(d.ie,0),
+    why:es?'El acceso a los servicios se reparte de forma pareja entre barrios, casi sin zonas rezagadas. Es la menor desigualdad territorial del conjunto.':'Access to services is evenly spread across neighborhoods, with almost no under-served pockets. The lowest spatial inequality in the set.'},
+   {img:5,lab:es?'Mayor población':'Largest population',d:maxBy(DATA,'pob'),v:d=>fmt(d.pob/1e6,1)+' M',
+    why:es?'Por amplio margen, la ciudad más poblada del país y del conjunto analizado: la escala a la que se enfrenta su movilidad diaria.':'By a wide margin the most populous city in the country and in the set: the scale its daily mobility must cope with.'},
+   {img:8,lab:es?'Hospital más cercano':'Closest hospital',d:minBy(AB,'d_hospital'),v:d=>fmt(d.d_hospital,0)+' m',
+    why:es?'Distancia mediana en red hasta el hospital más cercano. Ninguna otra ciudad confiable acerca tanto la atención hospitalaria a pie.':'Median network distance to the nearest hospital. No other reliable city brings hospital care this close on foot.'},
+   {img:0,lab:es?'Escuelas al alcance':'Schools within reach',d:minBy(AB,'d_escuela'),v:d=>fmt(d.d_escuela,0)+' m',
+    why:es?'Distancia mediana caminando hasta la escuela más cercana: los colegios quedan prácticamente a la vuelta de casa.':'Median walking distance to the nearest school: classrooms are practically around the corner.'},
+   {img:9,lab:es?'Mercado a la vuelta':'Market around the corner',d:minBy(AB,'d_mercado'),v:d=>fmt(d.d_mercado,0)+' m',
+    why:es?'Distancia mediana a pie hasta un mercado o supermercado. El abastecimiento diario está al alcance de la mano.':'Median walking distance to a market or supermarket. Daily shopping is within arm\'s reach.'},
+   {img:15,lab:es?'La más andina':'The most Andean',d:maxBy(AB,'alt'),v:d=>fmt(d.alt)+' m',
+    why:es?'La ciudad más alta del conjunto. En Colombia la altitud se asocia a redes más sinuosas y menos reticuladas: la montaña moldea el trazado.':'The highest city in the set. In Colombia, altitude is linked to more winding, less grid-like networks: the mountains shape the layout.'},
+  ];
+  return `<div class="card"><h3 class="k">${es?'Hallazgos destacados':'Key highlights'}</h3>
+   <div class="ins">${cards.map(c=>`<div class="c">
+     <div class="ph" style="background-image:url('${IMGDIR}${encodeURIComponent(IMGS[c.img].f)}')"><div class="lab">${c.lab}</div></div>
+     <div class="bd"><div class="val">${c.v(c.d)}</div><div class="city">📍 ${c.d.ciudad}</div><p class="why">${c.why}</p></div>
+   </div>`).join('')}</div>
+   <p class="muted" style="margin-top:12px">${es?'Calculado en vivo desde el análisis de las 140 ciudades (índices sobre cobertura A/B). Las fotos son decorativas y no representan a la ciudad destacada.':'Computed live from the analysis of the 140 cities (indices over A/B coverage). Photos are decorative and do not depict the highlighted city.'}</p></div>`;
+}
 function renderOverview(){
   const n=DATA.length, deps=new Set(DATA.map(d=>d.depto)).size, regs=new Set(DATA.map(d=>d.region)).size;
   const nodes=DATA.reduce((s,d)=>s+(d.n_nodos||0),0), pois=DATA.reduce((s,d)=>s+(d.n_pois_total||0),0);
@@ -492,10 +529,7 @@ function renderOverview(){
     [8,LANG==='en'?'service types':'tipos de servicio'],[fmt(nodes),LANG==='en'?'intersections analyzed':'intersecciones analizadas'],[fmt(pois),'POIs']];
   document.getElementById('ov_kpi').innerHTML=kpi.map(([n,t])=>`<div class="b"><div class="n">${typeof n==='number'?fmt(n):n}</div><div class="t">${t}</div></div>`).join('');
   const intro=`<div class="card">${splitSec(`<h3>${t('ov_h')}</h3><p>${t('ov_lead')}</p><p><b>${t('ov_find')}</b> ${t('ov_find_p')}</p>`,0,true)}</div>`;
-  document.getElementById('ov_body').innerHTML=intro+OVERVIEW[LANG]()+isoBlock()+bandBlock([2,4,9,12])+galleryBlock();
-  const lead=[['g','i_general'],['ic','i_conect'],['ia','i_acceso'],['ie','i_equidad']];
-  document.getElementById('ov_lead').innerHTML=lead.map(([k,l])=>{const d=leader(k);
-    return `<div class="bigcard" style="background:${idxColor(d[k])}"><div class="v">${fmt(d[k],0)}</div><div class="k">${t(l)}</div><div class="r">${d.ciudad}</div></div>`}).join('');
+  document.getElementById('ov_body').innerHTML=intro+OVERVIEW[LANG]()+isoBlock()+insightsBlock();
 }
 
 /* ---------------- RANKING ---------------- */
